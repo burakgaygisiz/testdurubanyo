@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duru Banyo | İzmir Duşa Kabin, Tadilat ve Dekorasyon</title>
+    <style>
+        /* TEMEL RENKLER */
+        :root {
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #777;
+            --mavi: #0066cc;
+            --kirmizi: #e63946;
+            --acik-gri: #f8f9fa;
+            --yesil: #25D366; /* WhatsApp yeşili */
+            --koyu-gri: #333; /* Daha koyu gri ekleyelim */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--siyah);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* PROMOSYON BANNER */
+        .promo-banner {
+            background: var(--kirmizi);
+            color: var(--beyaz);
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* WHATSAPP BUTONU */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float {
+            background-color: var(--yesil);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-text {
+            background-color: var(--yesil);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+            50% { transform: scale(1.1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+            100% { transform: scale(1); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        }
+
+        /* NAVIGASYON */
+        nav {
+            background-color: var(--siyah);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .logo {
+            color: var(--mavi);
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links { display: flex; }
+        .nav-links a {
+            color: var(--beyaz);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--mavi); }
+
+        /* MOBİL MENÜ */
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--beyaz); font-size: 1.5rem; cursor: pointer; }
+        .mobile-menu { display: none; flex-direction: column; background: var(--siyah); position: absolute; top: 100%; left: 0; width: 100%; padding: 10px 0; box-sizing: border-box; box-shadow: 0 5px 10px rgba(0,0,0,0.2); z-index: 98; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--beyaz); text-decoration: none; padding: 12px 20px; border-bottom: 1px solid #444; text-align: center; font-size: 1rem; }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { background-color: #444; }
+
+        /* HERO BÖLÜMÜ */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--beyaz);
+            text-align: center;
+            padding: 150px 20px;
+        }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .hero .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .btn { display: inline-block; background-color: var(--mavi); color: var(--beyaz); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: none; cursor: pointer; white-space: nowrap; }
+        .btn:hover { background-color: #0055aa; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .btn.btn-red { background-color: var(--kirmizi); }
+        .btn.btn-red:hover { background-color: #c42a38; }
+        .btn.btn-secondary { background-color: transparent; border: 2px solid var(--beyaz); color: var(--beyaz); }
+        .btn.btn-secondary:hover { background-color: var(--beyaz); color: var(--siyah); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.2); }
+
+        /* AVANTAJLAR */
+        .advantages { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .advantage-card { background: var(--acik-gri); border-radius: 10px; padding: 30px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #eee; }
+        .advantage-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .advantage-icon { font-size: 3rem; color: var(--mavi); margin-bottom: 20px; }
+        .advantage-card h3 { color: var(--siyah); font-size: 1.5rem; margin-bottom: 15px; }
+
+        /* HIZLI TESLİMAT BANNER */
+        .delivery-banner { background: linear-gradient(135deg, var(--mavi), #004080); color: var(--beyaz); text-align: center; padding: 60px 20px; margin: 50px 0; }
+        .delivery-banner h2 { font-size: 2.5rem; margin-bottom: 20px; }
+
+        /* HİZMETLER */
+        .services { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--siyah); }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: var(--beyaz); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .service-img { height: 200px; overflow: hidden; }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .service-card:hover .service-img img { transform: scale(1.1); }
+        .service-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .service-content h3 { color: var(--siyah); margin-bottom: 15px; font-size: 1.5rem; }
+        .service-content p { flex-grow: 1; margin-bottom: 20px; }
+        .service-link { color: var(--mavi); font-weight: bold; text-decoration: none; display: block; margin-top: auto; transition: color 0.3s; align-self: flex-start; }
+        .service-link:hover { color: #004080; }
+        .service-link.red { color: var(--kirmizi); }
+        .service-link.red:hover { color: #c42a38; }
+
+        /* Footer */
+        footer { background-color: var(--siyah); color: var(--beyaz); padding: 60px 20px 30px 20px; }
+        .footer-container { max-width: 1200px; margin: 0 auto 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; text-align: left; }
+        .footer-column h3 { color: var(--mavi); margin-bottom: 20px; font-size: 1.5rem; }
+        .footer-column p, .footer-column a { color: #ccc; margin-bottom: 10px; display: block; text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
+        .footer-column p strong { color: var(--beyaz); font-weight: 600; }
+        .footer-column a:hover { color: var(--beyaz); }
+        .footer-map iframe { width: 100%; height: 200px; border: 0; border-radius: 8px; filter: grayscale(30%); }
+        .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; text-align: center; font-size: 0.9rem; color: var(--gri); }
+
+        /* --- SLIDER GALERİ STİLLERİ (İyileştirilmiş) --- */
+        .model-gallery {
+            display: none;
+            padding: 50px 20px;
+            background-color: var(--koyu-gri); /* Arka plan koyulaştırıldı */
+            border-top: 1px solid #555;
+            border-bottom: 1px solid #555;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            z-index: 5;
+            position: relative;
+        }
+        .model-gallery h4 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--beyaz); /* Başlık rengi beyaz */
+        }
+        .slider-container {
+            max-width: 900px; /* Genişlik biraz artırıldı */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px; /* Daha yumuşak köşeler */
+            background-color: var(--siyah); /* Arka plan siyah (contain için) */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Daha belirgin gölge */
+            /* Slider yüksekliğini kontrol etmek için aspect-ratio kullanılabilir */
+            aspect-ratio: 16 / 10; /* Örnek oran, ayarlayabilirsiniz */
+            display: flex; /* İçeriği dikeyde ortalamak için */
+            align-items: center; /* İçeriği dikeyde ortala */
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%; /* Track yüksekliği containera uysun */
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%; /* Slide yüksekliği track'e uysun */
+            box-sizing: border-box;
+            display: flex; /* Resmi ortalamak için */
+            justify-content: center; /* Resmi yatayda ortala */
+            align-items: center; /* Resmi dikeyde ortala */
+            padding: 10px; /* Resim etrafında küçük boşluk */
+        }
+        .slide img {
+            display: block;
+            width: auto; /* Genişlik otomatik */
+            height: auto; /* Yükseklik otomatik */
+            max-width: 100%; /* Slide genişliğini geçmesin */
+            max-height: 100%; /* Slide yüksekliğini geçmesin */
+            object-fit: contain; /* **DEĞİŞTİRİLDİ** - Resmi sığdır, kırpma */
+            border-radius: 4px; /* Resimlere hafif köşe yuvarlatma */
+        }
+
+        /* Slider Navigasyon Butonları (İyileştirilmiş) */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4); /* Biraz daha saydam */
+            color: white;
+            border: none;
+            /* padding: 10px; */ /* Direkt boyut verelim */
+            width: 40px;   /* Genişlik */
+            height: 40px;  /* Yükseklik */
+            line-height: 40px; /* İkonu ortalamak için */
+            text-align: center; /* İkonu ortalamak için */
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.3rem; /* İkon boyutu */
+            border-radius: 50%; /* Tamamen yuvarlak */
+            transition: background-color 0.3s, opacity 0.3s;
+            font-weight: bold; /* Okları kalınlaştır */
+            user-select: none; /* Yanlışlıkla seçilmeyi önle */
+        }
+        .slider-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .prev-btn {
+            left: 15px; /* Konum ayarı */
+        }
+        .next-btn {
+            right: 15px; /* Konum ayarı */
+        }
+        .slider-btn.disabled {
+            opacity: 0.3; /* Daha belirgin pasiflik */
+            cursor: not-allowed;
+            background-color: rgba(0, 0, 0, 0.2); /* Pasif arka plan */
+        }
+
+        .close-gallery-container {
+             text-align: center;
+             margin-top: 40px; /* Kapat butonu üst boşluk artırıldı */
+        }
+
+
+        /* MOBİL RESPONSIVE */
+        @media (max-width: 992px) {
+            .footer-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+             /* Tablette slider oranını koru veya ayarla */
+             .slider-container { max-width: 90%; aspect-ratio: 16 / 10; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: row; justify-content: space-between; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 100px 20px; }
+            .hero h1 { font-size: 2.2rem; margin-bottom: 15px; }
+            .hero p { font-size: 1.1rem; margin-bottom: 25px; }
+            .hero .btn-container { flex-direction: column; align-items: center; }
+            .btn { padding: 12px 25px; font-size: 1rem; width: auto; max-width: 300px; }
+            .delivery-banner h2 { font-size: 1.8rem; }
+            .delivery-banner p { font-size: 1rem; }
+            .services h2 { font-size: 2rem; margin-bottom: 30px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .service-link { align-self: center; }
+            .footer-container { grid-template-columns: 1fr; text-align: center; }
+            .footer-column h3 { text-align: center; }
+            .footer-map iframe { height: 180px; }
+            .whatsapp-container { bottom: 20px; right: 20px; }
+            .whatsapp-text { display: none; }
+
+            .model-gallery h4 { font-size: 1.8rem; }
+            .slider-container { max-width: 95%; aspect-ratio: 4 / 3; } /* Mobilde farklı oran */
+            .slider-btn { width: 35px; height: 35px; line-height: 35px; font-size: 1.1rem; left: 10px; } /* Mobil buton boyutu ve konumu */
+            .next-btn { right: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .promo-banner { font-size: 1rem; padding: 10px; }
+            .advantage-card { padding: 20px; }
+            .advantage-icon { font-size: 2.5rem; }
+            .advantage-card h3 { font-size: 1.3rem; }
+            .delivery-banner { padding: 40px 15px; }
+            .delivery-banner h2 { font-size: 1.5rem; }
+            .delivery-banner .btn { font-size: 0.9rem; padding: 10px 20px; }
+            .btn { width: 90%; }
+            .slider-container { aspect-ratio: 1 / 1; } /* Çok küçük ekranda kareye yakın oran */
+        }
+    </style>
+</head>
+<body>
+    <div class="promo-banner">
+        🚀 HIZLI TESLİMAT! Siparişleriniz 3 iş gününde montajlı teslim. Hemen iletişime geçin!
+    </div>
+
+    <div class="whatsapp-container">
+        <div class="whatsapp-text">WhatsApp'tan Hemen Ulaşın</div>
+        <a href="https://wa.me/905301234567?text=Duru%20Banyo%20hakkında%20bilgi%20alabilir%20miyim?" class="whatsapp-float" target="_blank" aria-label="WhatsApp ile İletişime Geçin">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .4c101.1 0 183.3 82.2 183.3 183.3 0 31.7-8.2 62.1-23.5 88.4l-17.4 25.9-18.4 10.7-58.8-15.4-33.8-19.1-33.8 19.1-18.4-10.7-17.4-25.9C34.3 346.9 25.9 316.5 25.9 284.9c0-101.1 82.2-183.3 183.3-183.3zm-41.9 266.2c-6.7 0-11.4-1.9-16.6-5.4-5.1-3.4-18.8-11.5-34.5-25.4-15.7-13.9-30.7-32.1-41.7-53.4-11-21.3-16.5-38.4-16.5-60.3 0-21.9 5.4-40.7 16.5-56.4 11-15.7 25.4-27.9 43.2-36.6 17.9-8.7 37.1-13 57.4-13 20.3 0 38.8 4.3 55.5 13 16.7 8.7 30 20.9 39.8 36.6 9.8 15.7 14.7 34.5 14.7 56.4 0 21.9-5.4 40.7-16.5 60.3-11 21.3-26 39.5-41.7 53.4-15.7 13.9-30.7 22-34.5 25.4-5.2 3.5-9.9 5.4-16.6 5.4zm33.4-91.5c-1.9-3.8-6.7-6.7-12.4-6.7h-23.3c-5.7 0-10.4 1.9-14.2 4.8-3.8 2.9-7.6 7.6-9.5 14.2-1.9 6.7-1.9 14.2 0 22.7 1.9 8.6 6.7 18.2 14.2 28.8 7.6 10.7 17.1 21.3 28.8 31 11.7 9.8 23.3 17.7 35 23.6 11.7 5.9 22.4 8.9 32.1 8.9 9.8 0 17.7-1.9 24.7-5.7 7-3.8 12-9.5 15.2-17.1s4.8-16.1 4.8-25.7v-2.8c-1-5.7-3.4-10.4-7.2-14.2-3.8-3.8-8.6-5.7-14.2-5.7h-14.2c-5.7 0-10.4 1.9-14.2 5.7s-6.7 8.6-8.6 14.2c-1.9 5.7-1.9 10.4 0 14.2 1.9 3.8 3.8 6.7 5.7 8.6 1.9 1.9 3.4 3.4 4.3 4.3.9.9 1.4 1.9 1.4 2.9 0 .9-.5 1.9-1.4 2.9l-2.9 2.9c-.9.9-1.9 1.4-2.9 1.4-.9 0-1.9-.5-2.9-1.4l-10.7-10.7c-4.8-4.8-9.5-9.5-14.2-15.2-4.8-5.7-8.6-11.4-11.4-17.1s-4.8-11.4-5.7-17.1c-.9-5.7-.9-10.4 0-14.2 1-3.8 2.4-6.7 4.3-8.6s3.8-3.4 5.7-4.3c1.9-.9 3.8-1.4 5.7-1.4h2.9c.9 0 1.9.5 2.9 1.4l2.9 2.9c.9.9 1.4 1.9 1.4 2.9s-.5 1.9-1.4 2.9l-3.8 4.8z"/></svg>
+        </a>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DURU BANYO</div>
+            <div class="nav-links">
+                <a href="#anasayfa">Anasayfa</a>
+                <a href="#avantajlar">Avantajlar</a>
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#iletisim">İletişim</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menüyü Aç/Kapat">
+                <span style="font-size: 24px; line-height: 1;">☰</span>
+            </button>
+             <div class="mobile-menu">
+                 <a href="#anasayfa">Anasayfa</a>
+                <a href="#avantajlar">Avantajlar</a>
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#iletisim">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="anasayfa">
+         <h1>İzmir'de Duşa Kabin, Tadilat ve Dekorasyon Uzmanı</h1>
+        <p>Profesyonel imalat, ekspres montaj, kaliteli tamirat, komple banyo yenileme ve ev dekorasyon hizmetleri. <strong>Duşa kabinde 3 iş gününde teslim garantisi!</strong></p>
+        <div class="btn-container">
+            <a href="#iletisim" class="btn">ÜCRETSİZ KEŞİF İSTE</a>
+            <a href="#imalat-modelleri" class="btn btn-secondary hero-modeller-trigger">MODELLERİMİZİ GÖR</a>
+        </div>
+    </section>
+
+    <section class="advantages" id="avantajlar">
+        <div class="advantage-card">
+            <div class="advantage-icon">⚡</div>
+            <h3>Hızlı Teslimat (Duşa Kabin)</h3>
+            <p>Duşa kabin siparişleriniz 3 iş günü içinde teslim edilir. Acil ihtiyaçlarınıza çözüm!</p>
+        </div>
+        <div class="advantage-card">
+            <div class="advantage-icon">🔧</div>
+            <h3>Uzman Ekip</h3>
+            <p>10+ yıllık deneyimli ustalarımızla sorunsuz montaj ve tadilat garantisi.</p>
+        </div>
+        <div class="advantage-card">
+            <div class="advantage-icon">📏</div>
+            <h3>Kişiye Özel Çözümler</h3>
+            <p>Banyonuza ve zevkinize %100 uyumlu, özel ölçü ve tasarım imkanı.</p>
+        </div>
+        <div class="advantage-card">
+            <div class="advantage-icon">💯</div>
+            <h3>Garantili İşçilik</h3>
+            <p>Tüm duşa kabin ürünlerimizde 2 yıl, tadilat işlerimizde işçilik garantisi.</p>
+        </div>
+    </section>
+
+    <section class="delivery-banner">
+        <h2>ACİL DURUMLAR İÇİN EKSPRES HİZMET!</h2>
+        <p>Kırık duşa kabin camı, bozulan kapı veya acil tamirat mı gerekiyor? <strong>İzmir içinde hızlı müdahale!</strong></p>
+        <a href="tel:+905301234567" class="btn btn-red">HEMEN ARA: 0 530 123 45 67</a>
+    </section>
+
+    <section class="services" id="hizmetler">
+        <h2>HİZMETLERİMİZ</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://files.ekmcdn.com/639703/images/vantage-matt-black-corner-entry-and-offset-corner-entry-shower-enclosure-various-sizes-234490-p.webp?w=1000&h=1000&v=2572023-090710" alt="Duşa Kabin İmalat Hizmeti">
+                </div>
+                <div class="service-content">
+                    <h3>DUŞA KABİN İMALATI</h3>
+                    <p>Modern tasarımlarla özel ölçülerinize göre duşa kabin üretimi. Kaliteli malzeme, uygun fiyat.</p>
+                    <a href="#imalat-modelleri" class="service-link modal-trigger">MODELLERİ GÖR →</a>
+                 </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://media.istockphoto.com/id/1424195041/photo/plumber-installing-a-shower-cabin-in-bathroom.jpg?s=612x612&w=0&k=20&c=5b5f32WWECdqSJwor7L7Cbrom40FnUht_fikoNkADdc=" height="80"  alt="Montaj Hizmeti">
+                </div>
+                <div class="service-content">
+                    <h3>MONTAJ</h3>
+                    <p>Duşa kabin ve banyo aksesuarlarınızın profesyonel ekipmanlarla sorunsuz montajı. İzmir'in tüm ilçelerine hizmet!</p>
+                    <a href="#iletisim" class="service-link">RANDEVU AL →</a>
+                </div>
+            </div>
+             <div class="service-card">
+                <div class="service-img">
+                     <img src="https://www.unlock.com/wp-content/uploads/2022/10/repairs-the-shower-cabin-plumber-in-uniform-is-in-2022-09-26-16-54-37-utc-scaled-e1668729682541.jpg" alt="Duşa Kabin Tamirat Hizmeti">
+                </div>
+                <div class="service-content">
+                    <h3>DUŞA KABİN TAMİRATI</h3>
+                    <p>Cam değişimi, teker/rulman yenileme, su sızdırmazlık, conta değişimi. Hızlı ve garantili onarım.</p>
+                     <a href="#tamirat-ornekleri" class="service-link modal-trigger red">TAMİRAT ÖRNEKLERİ GÖR →</a>
+                     </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">
+                     <img src="/xx.png" alt="Komple Banyo Tadilatı">
+                </div>
+                <div class="service-content">
+                    <h3>KOMPLE BANYO TADİLATI</h3>
+                    <p>Banyonuzu baştan yaratıyoruz! Kırım, döküm, tesisat, seramik, vitrifiye montajı ve tüm ince işler.</p>
+                    <a href="#iletisim" class="service-link">DETAYLI BİLGİ AL →</a>
+                </div>
+            </div>
+           </div>
+    </section>
+
+    <section id="imalat-modelleri" class="model-gallery" style="display: none;">
+        <h4>Duşa Kabin Modellerimiz</h4>
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide"><img src="/IMG-20250417-WA0037.JPG" alt="Duşa Kabin Modeli 1"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0038.jpg" alt="Duşa Kabin Modeli 2"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0039.JPG" alt="Duşa Kabin Modeli 3"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0040.jpg" alt="Duşa Kabin Modeli 4"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0041.jpg" alt="Duşa Kabin Modeli 5"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0042.jpg" alt="Duşa Kabin Modeli 6"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0043.jpg" alt="Duşa Kabin Modeli 7"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0044.jpg" alt="Duşa Kabin Modeli 8"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0045.jpg" alt="Duşa Kabin Modeli 9"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0046.jpg" alt="Duşa Kabin Modeli 10"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0047.jpg" alt="Duşa Kabin Modeli 11"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0050.jpg" alt="Duşa Kabin Modeli 12"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0052.jpg" alt="Duşa Kabin Modeli 13"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0055.jpg" alt="Duşa Kabin Modeli 14"></div>
+            </div>
+            <button class="slider-btn prev-btn">‹</button> <button class="slider-btn next-btn">›</button> </div>
+        <div class="close-gallery-container">
+             <button class="btn btn-red close-gallery" data-target="imalat-modelleri">Kapat</button>
+         </div>
+    </section>
+
+     <section id="tamirat-ornekleri" class="model-gallery" style="display: none;">
+        <h4>Tamirat Örneklerimiz</h4>
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide"><img src="/IMG-20250417-WA0057.jpg" alt="Tamirat Öncesi 1"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0051.jpg" alt="Tamirat Öncesi 2"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0053.jpg" alt="Tamirat Sonrası 1"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0054.jpg" alt="Tamirat Öncesi 3"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0059.jpg" alt="Tamirat Sonrası 2"></div>
+                <div class="slide"><img src="/IMG-20250417-WA0058.jpg" alt="Tamirat Sonrası 3"></div>
+            </div>
+            <button class="slider-btn prev-btn">‹</button> <button class="slider-btn next-btn">›</button> </div>
+         <div class="close-gallery-container">
+             <button class="btn btn-red close-gallery" data-target="tamirat-ornekleri">Kapat</button>
+         </div>
+    </section>
+
+    <footer id="iletisim">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>DURU BANYO</h3>
+                <p>İzmir'de duşa kabin, banyo tadilatı ve ev dekorasyonunda güvenilir adresiniz. Kaliteli malzeme, hızlı ve garantili çözümler.</p>
+            </div>
+            <div class="footer-column">
+                <h3>HIZLI LİNKLER</h3>
+                <a href="#anasayfa">Anasayfa</a>
+                <a href="#avantajlar">Avantajlar</a>
+                <a href="#hizmetler">Hizmetler</a>
+                 <a href="#imalat-modelleri" class="modal-trigger">Duşa Kabin Modelleri</a>
+                 <a href="#tamirat-ornekleri" class="modal-trigger">Tamirat Örnekleri</a>
+            </div>
+            <div class="footer-column">
+                <h3>İLETİŞİM</h3>
+                <a href="tel:+905301234567">📞 0 530 123 45 67</a>
+                <a href="mailto:info@durubanyo.com">✉️ info@durubanyo.com</a>
+                 <p>📍 Eğitim Mh, Ziya Gökalp Sk. No:43, 35330 Balçova/İzmir</p>
+                <br>
+                <p><strong>Çalışma Saatleri:</strong></p>
+                <p>Hafta İçi: 08:00 - 18:00</p>
+                <p>Cumartesi: 09:00 - 15:00</p>
+                <p>Pazar: Kapalı</p>
+            </div>
+             <div class="footer-column footer-map">
+                 <h3>KONUMUMUZ</h3>
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.894720863338!2d27.07137707635128!3d38.37471817183899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbdf48b3633763%3A0x29286a939c2c939!2zRcSfaXRpbSwgWml5YSBHw7ZrYWxwIFNrLiBObzo0MywgMzUzMzAgQmFsw6dvdmEvxLB6bWly!5e0!3m2!1str!2str!4v1713710964697!5m2!1str!2str" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             </div>
+        </div>
+        <div class="copyright">
+            <p>© <span id="current-year"></span> Duru Banyo. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobil menü toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navContainer = document.querySelector('.nav-container');
+        if(mobileMenuBtn && mobileMenu && navContainer) { // Null kontrolü eklendi
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+             document.addEventListener('click', function(event) {
+                 const isClickInsideNav = navContainer.contains(event.target);
+                 if (!isClickInsideNav && mobileMenu.classList.contains('active')) {
+                     mobileMenu.classList.remove('active');
+                 }
+             });
+        }
+
+        // WhatsApp butonunun scroll pozisyonunu ayarla
+        window.addEventListener('scroll', function() {
+            const whatsappContainer = document.querySelector('.whatsapp-container');
+            if (!whatsappContainer) return;
+            const footer = document.querySelector('footer');
+            if (!footer) return;
+
+            const footerRect = footer.getBoundingClientRect();
+            const footerTop = footerRect.top + window.scrollY;
+            const windowHeight = window.innerHeight;
+            const scrollBottom = window.scrollY + windowHeight;
+            const basePosition = window.innerWidth <= 768 ? 20 : 30;
+            const visibleFooterHeight = scrollBottom - footerTop;
+
+            if (visibleFooterHeight > basePosition) {
+                 whatsappContainer.style.bottom = `${visibleFooterHeight}px`;
+             } else {
+                 whatsappContainer.style.bottom = `${basePosition}px`;
+             }
+        });
+
+        // --- SLIDER FONKSİYONLARI ---
+        function setupSlider(galleryId) {
+            const galleryElement = document.getElementById(galleryId);
+            if (!galleryElement) return;
+
+            const track = galleryElement.querySelector('.slider-track');
+            const slides = galleryElement.querySelectorAll('.slide');
+            const prevButton = galleryElement.querySelector('.prev-btn');
+            const nextButton = galleryElement.querySelector('.next-btn');
+            const closeButton = galleryElement.querySelector('.close-gallery');
+
+            // Gerekli elemanlar yoksa slider'ı kurma
+            if (!track || !slides || slides.length === 0 || !prevButton || !nextButton) {
+                console.warn(`Slider setup failed for gallery: ${galleryId}. Required elements missing.`);
+                // Galeriyi gizleyebiliriz veya bir hata mesajı gösterebiliriz
+                galleryElement.style.display = 'none';
+                return;
+            }
+
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateSliderPosition() {
+                if(track) {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+                updateButtonStates();
+            }
+
+            function updateButtonStates() {
+                if(prevButton && nextButton){ // Butonların varlığını kontrol et
+                    prevButton.disabled = currentIndex === 0;
+                    nextButton.disabled = currentIndex >= totalSlides - 1; // >= kullanıldı
+
+                    prevButton.classList.toggle('disabled', currentIndex === 0);
+                    nextButton.classList.toggle('disabled', currentIndex >= totalSlides - 1);
+                }
+            }
+
+            if(prevButton){
+                prevButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateSliderPosition();
+                    }
+                });
+            }
+
+           if(nextButton){
+                nextButton.addEventListener('click', () => {
+                    if (currentIndex < totalSlides - 1) {
+                        currentIndex++;
+                        updateSliderPosition();
+                    }
+                });
+           }
+
+
+             function resetSlider() {
+                currentIndex = 0;
+                updateSliderPosition();
+            }
+
+             if(closeButton) {
+                closeButton.addEventListener('click', () => {
+                    galleryElement.style.display = 'none';
+                 });
+             }
+
+            updateSliderPosition(); // İlk kurulum
+            galleryElement.resetSlider = resetSlider; // Fonksiyonu elemente ekle
+        }
+
+        setupSlider('imalat-modelleri');
+        setupSlider('tamirat-ornekleri');
+
+
+        // --- GALERİ AÇMA/KAPATMA MANTIĞI ---
+        const modalTriggers = document.querySelectorAll('.modal-trigger, .hero-modeller-trigger');
+        const modelGalleries = document.querySelectorAll('.model-gallery');
+
+         modalTriggers.forEach(trigger => {
+             trigger.addEventListener('click', function(e) {
+                 e.preventDefault();
+                 const targetId = this.getAttribute('href').substring(1);
+                 const targetGallery = document.getElementById(targetId);
+
+                 if (targetGallery) {
+                     // Diğer açık galerileri kapat
+                     modelGalleries.forEach(gallery => {
+                         if (gallery.id !== targetId && gallery.style.display === 'block') {
+                             gallery.style.display = 'none';
+                         }
+                     });
+
+                     // Hedef galeriyi göster
+                     targetGallery.style.display = 'block';
+
+                     // Slider'ı sıfırla
+                     if (targetGallery.resetSlider) {
+                        targetGallery.resetSlider();
+                     }
+
+                     // Galerinin olduğu yere scroll yap
+                     setTimeout(() => {
+                          // Scroll yapmadan önce görünür olup olmadığını kontrol et
+                          if (targetGallery.style.display === 'block') {
+                               targetGallery.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          }
+                     }, 150); // Biraz daha gecikme
+                 } else {
+                     console.warn(`Target gallery not found for trigger: ${this.getAttribute('href')}`);
+                 }
+             });
+         });
+
+        // Copyright yılı otomatik güncelleme
+         const currentYearSpan = document.getElementById('current-year');
+         if (currentYearSpan) { // Null kontrolü
+            currentYearSpan.textContent = new Date().getFullYear();
+         } else {
+            console.warn("Element with ID 'current-year' not found.");
+         }
+
+    </script>
+</body>
+</html>
