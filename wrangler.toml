@@ -1,0 +1,15 @@
+name = "durubanyo-worker"
+compatibility_date = "2025-04-22"
+
+[env.production]
+account_id = "your-account-id"
+workers_dev = true
+route = ""
+zone_id = ""
+
+[build]
+command = "npm run build"  # Eğer bir build işlemi varsa, bu komutu yazın
+
+[deploy]
+command = "npx wrangler deploy"
+main = "src/index.ts"  # Ana Worker dosyanız
